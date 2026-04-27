@@ -2,13 +2,13 @@
   "compilerOptions": {
     "strict": true,
     "target": "esnext",
-    "module": "esnext",
+    "module": "nodenext",
     "jsx": "react-jsx",
     "skipLibCheck": true,
     "isolatedModules": true,
     "lib": ["esnext", "dom"],
     "types": ["vite/client"],
-    "moduleResolution": "bundler",
+    "moduleResolution": "nodenext",
 
     /* Alias */
     "paths": { "@/*": ["./src/*"] },
