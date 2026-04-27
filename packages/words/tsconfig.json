@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "module": "preserve",
+    "moduleResolution": "bundler",
+
+    /* Alias */
+    "paths": { "@/*": ["./src/*"] }
+  },
+  "include": ["src/*.ts"]
+}

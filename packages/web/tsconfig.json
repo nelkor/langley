@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "target": "esnext",
+    "module": "esnext",
+    "jsx": "react-jsx",
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "lib": ["esnext", "dom"],
+    "types": ["vite/client"],
+    "moduleResolution": "bundler",
+
+    /* Alias */
+    "paths": { "@/*": ["./src/*"] },
+  },
+  "include": ["src/*.ts", "src/*.tsx"]
+}
