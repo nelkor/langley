@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
     "strict": true,
+    "skipLibCheck": true,
     "module": "preserve",
     "moduleResolution": "bundler",
 
     /* Alias */
     "paths": { "@/*": ["./src/*"] }
   },
-  "include": ["src/*.ts"]
+  "include": ["src/**/*.ts"]
 }
