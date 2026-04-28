@@ -6,7 +6,12 @@ export type WordSet = {
   words: Record<SupportedLang, string>[]
 }
 
-export type SupportedSets = {
+export type SupportedSet = {
   id: string
   name: string
-}[]
+}
+
+export type TrainingWord = {
+  nativeLang: string
+  targetLang: string
+}

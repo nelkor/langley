@@ -1,3 +1,3 @@
-export { getSetsForLangs } from '@/entities/sets'
 export { getLanguages } from '@/entities/languages'
-export type { SupportedLang, SupportedSets } from '@/types'
+export { getSetsForLangs, getFinalSet } from '@/entities/sets'
+export type { SupportedLang, SupportedSet, TrainingWord } from '@/types'
