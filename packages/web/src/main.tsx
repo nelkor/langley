@@ -1,3 +1,16 @@
-import { getLanguages } from '@langley/words'
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
 
-getLanguages().then(result => console.log(result))
+import { App } from '@/app'
+
+const root = document.getElementById('root')
+
+if (!root) {
+  throw new Error('Root not found')
+}
+
+createRoot(root).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
