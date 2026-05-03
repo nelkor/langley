@@ -1,3 +1,5 @@
+import { arrayToShuffled } from 'array-shuffle'
+
 import { SupportedSet, TrainingWord, SupportedLang } from '@/types'
 
 import { sets } from './model'
@@ -21,7 +23,7 @@ export const calculateSetsForLangs = (
   return result
 }
 
-export const calculateFinalSet = (
+export const calculateTrainingSet = (
   nativeLang: SupportedLang,
   targetLang: SupportedLang,
   ids: string[],
@@ -53,5 +55,5 @@ export const calculateFinalSet = (
 
   // В будущем можно будет поискать и вырезать одинаковые слова.
 
-  return result
+  return arrayToShuffled(result)
 }
