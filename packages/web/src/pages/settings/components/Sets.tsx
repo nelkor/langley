@@ -23,23 +23,27 @@ export const Sets: FC<SetsProps> = ({
 
   return (
     <>
-      <select
-        multiple
-        name="sets"
-        value={selectedSets}
-        disabled={!sets.length}
-        onChange={e =>
-          setSelectedSets(
-            Array.from(e.target.selectedOptions).map(({ value }) => value),
-          )
-        }
-      >
-        {sets.map(set => (
-          <option value={set.value} key={set.value}>
-            {set.text}
-          </option>
-        ))}
-      </select>
+      <label className="lang-select">
+        <span>Available word sets</span>
+
+        <select
+          multiple
+          name="sets"
+          value={selectedSets}
+          disabled={!sets.length}
+          onChange={e =>
+            setSelectedSets(
+              Array.from(e.target.selectedOptions).map(({ value }) => value),
+            )
+          }
+        >
+          {sets.map(set => (
+            <option value={set.value} key={set.value}>
+              {set.text}
+            </option>
+          ))}
+        </select>
+      </label>
     </>
   )
 }

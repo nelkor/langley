@@ -1,0 +1,12 @@
+html {
+  font-family: sans-serif;
+}
+
+body {
+  margin: 32px;
+}
+
+::selection {
+  color: white;
+  background-color: darkgreen;
+}

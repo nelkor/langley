@@ -26,7 +26,7 @@ export const Langs: FC<LangsProps> = ({
 
   return (
     <>
-      <label>
+      <label className="lang-select">
         <span>Your language</span>
 
         <select
@@ -51,7 +51,7 @@ export const Langs: FC<LangsProps> = ({
         </select>
       </label>
 
-      <label>
+      <label className="lang-select">
         <span>Target language</span>
 
         <select

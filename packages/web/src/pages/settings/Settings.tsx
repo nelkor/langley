@@ -13,9 +13,7 @@ export const Settings: FC<SettingsProps> = ({
   setSelectedSets,
   onTrainingStarted,
 }) => (
-  <>
-    <div>Settings</div>
-
+  <div className="settings-page">
     <Langs
       nativeLang={nativeLang}
       targetLang={targetLang}
@@ -30,8 +28,12 @@ export const Settings: FC<SettingsProps> = ({
       setSelectedSets={setSelectedSets}
     />
 
-    <button disabled={!selectedSets.length} onClick={onTrainingStarted}>
-      Start
+    <button
+      className="start"
+      disabled={!selectedSets.length}
+      onClick={onTrainingStarted}
+    >
+      Start training
     </button>
-  </>
+  </div>
 )
