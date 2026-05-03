@@ -1,0 +1,67 @@
+.settings-page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 400px;
+  margin: 0 auto;
+
+  .start {
+    font-size: 24px;
+    border-radius: 8px;
+    color: white;
+    transition: .2s linear;
+    background: darkgreen;
+    height: 48px;
+    border: unset;
+
+    &:disabled {
+      filter: blur(1px) grayscale(1);
+      opacity: .2;
+    }
+
+    &:not(:disabled):hover {
+      background: green;
+      box-shadow: 0 0 0 2px white, 0 0 0 4px lightgreen;
+    }
+
+    &:not(:disabled):active {
+      transform: scale(0.99);
+      filter: grayscale(0.4);
+    }
+  }
+
+  .lang-select {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    span {
+      font-size: 18px;
+      color: gray;
+    }
+
+    select {
+      appearance: none;
+      min-height: 40px;
+      font-size: 18px;
+      padding-left: 8px;
+    }
+
+    select[multiple] {
+      padding: 0;
+      min-height: 160px;
+
+      option {
+        padding-left: 8px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+
+        &:checked {
+          color: white;
+          background-color: darkgreen;
+        }
+      }
+    }
+  }
+}
