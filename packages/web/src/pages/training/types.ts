@@ -1,4 +1,4 @@
-import { SupportedLang } from '@langley/words'
+import { TrainingWord, SupportedLang } from '@langley/words'
 
 export type TrainingProps = {
   selectedSets: string[]
@@ -6,3 +6,5 @@ export type TrainingProps = {
   nativeLang: SupportedLang
   targetLang: SupportedLang
 }
+
+export type TrainingWordWithId = TrainingWord & { id: string }

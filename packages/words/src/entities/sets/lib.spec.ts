@@ -1,13 +1,13 @@
 import { it, expect, describe } from 'vitest'
 
-import { calculateFinalSet, calculateSetsForLangs } from './lib'
+import { calculateTrainingSet, calculateSetsForLangs } from './lib'
 
 describe('calculateSetsForLangs', () => {
-  it('shoult be defined', () => {
+  it('should be defined', () => {
     expect(calculateSetsForLangs).toBeDefined()
   })
 
-  it('should calculate correclty', () => {
+  it('should calculate correctly', () => {
     expect(calculateSetsForLangs('en', 'ru')).toEqual([
       { id: 'nouns', name: 'Nouns' },
       { id: 'verbs', name: 'Verbs' },
@@ -15,12 +15,12 @@ describe('calculateSetsForLangs', () => {
   })
 })
 
-describe('calculateFinalSet', () => {
-  it('shoult be defined', () => {
-    expect(calculateFinalSet).toBeDefined()
+describe('calculateTrainingSet', () => {
+  it('should be defined', () => {
+    expect(calculateTrainingSet).toBeDefined()
   })
 
-  it('should calculate correclty', () => {
-    expect(calculateFinalSet('ru', 'es', ['verbs', 'nouns']).length).toBe(4)
+  it('should calculate correctly', () => {
+    expect(calculateTrainingSet('ru', 'es', ['verbs', 'nouns']).length).toBe(4)
   })
 })

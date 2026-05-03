@@ -7,5 +7,8 @@
   "scripts": {
     "ts": "tsc --noemit",
     "build": "vite build"
+  },
+  "devDependencies": {
+    "array-shuffle": "^4.1.0"
   }
 }
