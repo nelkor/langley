@@ -2,6 +2,7 @@ import { v4 as createId } from 'uuid'
 import { FC, useState, useEffect } from 'react'
 import { getTrainingSet } from '@langley/words'
 
+import { Example } from './Example'
 import { TrainingProps, TrainingWordWithId } from './types'
 
 export const Training: FC<TrainingProps> = ({
@@ -19,18 +20,9 @@ export const Training: FC<TrainingProps> = ({
   }, [nativeLang, targetLang, selectedSets])
 
   return (
-    <>
-      <div>Training</div>
-
-      <ul>
-        {trainingWords.map(word => (
-          <li key={word.id}>
-            {word.nativeLang}: {word.targetLang}
-          </li>
-        ))}
-      </ul>
-
+    <div className="training-page">
       <button onClick={exitTraining}>Exit</button>
-    </>
+      {trainingWords.length && <Example initialWords={trainingWords} />}
+    </div>
   )
 }
