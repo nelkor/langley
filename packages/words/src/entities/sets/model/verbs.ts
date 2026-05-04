@@ -8,15 +8,11 @@ export const verbs: WordSet = {
     ru: 'Глаголы',
   },
   words: [
-    {
-      es: 'Ir',
-      ru: 'Идти',
-      en: 'To go',
-    },
-    {
-      es: 'Hacer',
-      en: 'To do',
-      ru: 'Делать',
-    },
+    { es: 'Ir', en: 'Go', ru: 'Идти' },
+    { en: 'Do', es: 'Hacer', ru: 'Делать' },
+    { en: 'Speak', es: 'Hablar', ru: 'Говорить' },
+    { en: 'Move', es: 'Mover', ru: 'Двигаться' },
+    { es: 'Gritar', en: 'Scream', ru: 'Кричать' },
+    { en: 'Sit', ru: 'Сидеть', es: 'Sentarse' },
   ],
 }
