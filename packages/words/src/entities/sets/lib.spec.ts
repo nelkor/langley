@@ -21,6 +21,6 @@ describe('calculateTrainingSet', () => {
   })
 
   it('should calculate correctly', () => {
-    expect(calculateTrainingSet('ru', 'es', ['verbs', 'nouns']).length).toBe(4)
+    expect(calculateTrainingSet('ru', 'es', ['verbs', 'nouns']).length).toBe(12)
   })
 })

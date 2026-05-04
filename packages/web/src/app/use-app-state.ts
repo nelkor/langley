@@ -16,6 +16,7 @@ export const useAppState = () => {
   }
 
   const exitTraining = () => {
+    setSelectedSets([])
     setIsTrainingStarted(false)
   }
 

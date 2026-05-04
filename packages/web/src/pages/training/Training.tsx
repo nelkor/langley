@@ -1,36 +1,49 @@
-import { v4 as createId } from 'uuid'
-import { FC, useState, useEffect } from 'react'
-import { getTrainingSet } from '@langley/words'
+import { FC } from 'react'
 
-import { TrainingProps, TrainingWordWithId } from './types'
+import { TrainingProps } from './types'
+import { calculateFontSize } from './lib'
+import { useTraining } from './use-training'
 
-export const Training: FC<TrainingProps> = ({
-  nativeLang,
-  targetLang,
-  exitTraining,
-  selectedSets,
-}) => {
-  const [trainingWords, setTrainingWords] = useState<TrainingWordWithId[]>([])
-
-  useEffect(() => {
-    getTrainingSet(nativeLang, targetLang, selectedSets).then(result =>
-      setTrainingWords(result.map(item => ({ ...item, id: createId() }))),
-    )
-  }, [nativeLang, targetLang, selectedSets])
+export const Training: FC<TrainingProps> = props => {
+  const {
+    flipped,
+    currentText,
+    handleCheck,
+    handleCross,
+    exitTraining,
+    toggleFlipped,
+  } = useTraining(props)
 
   return (
-    <>
-      <div>Training</div>
+    <div className="training-page">
+      <button className="exit" onClick={exitTraining}>
+        Back to Settings
+      </button>
 
-      <ul>
-        {trainingWords.map(word => (
-          <li key={word.id}>
-            {word.nativeLang}: {word.targetLang}
-          </li>
-        ))}
-      </ul>
+      {currentText && (
+        <>
+          <div className={`card ${flipped ? 'face-down' : 'face-up'}`}>
+            <div
+              className="text"
+              style={{ fontSize: calculateFontSize(currentText.length) }}
+            >
+              {currentText}
+            </div>
 
-      <button onClick={exitTraining}>Exit</button>
-    </>
+            <button className="flip" onClick={toggleFlipped} />
+          </div>
+
+          <div className="controls">
+            <button className="check" onClick={handleCheck}>
+              ✓
+            </button>
+
+            <button className="cross" onClick={handleCross}>
+              ×
+            </button>
+          </div>
+        </>
+      )}
+    </div>
   )
 }

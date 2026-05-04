@@ -9,14 +9,14 @@
     font-size: 24px;
     border-radius: 8px;
     color: white;
-    transition: .2s linear;
+    transition: 200ms linear;
     background: darkgreen;
     height: 48px;
     border: unset;
 
     &:disabled {
       filter: blur(1px) grayscale(1);
-      opacity: .2;
+      opacity: 0.2;
     }
 
     &:not(:disabled):hover {

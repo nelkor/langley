@@ -1,0 +1,98 @@
+.training-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  max-width: 400px;
+  margin: 0 auto;
+
+  .exit {
+    width: 100%;
+    font-size: 20px;
+    border-radius: 8px;
+    color: white;
+    transition: 200ms linear;
+    background: gray;
+    height: 48px;
+    border: unset;
+    opacity: 0.6;
+
+    &:hover {
+      background: darkgray;
+      box-shadow: 0 0 0 2px white, 0 0 0 4px darkgray;
+    }
+
+    &:active {
+      transform: scale(0.99);
+      background: gray;
+    }
+  }
+
+  .card {
+    position: relative;
+    width: 280px;
+    height: 360px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 4px 4px 10px 2px #223c5033;
+
+    .flip {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      width: 280px;
+      height: 360px;
+    }
+
+    &.face-up {
+      color: dimgrey;
+      background: linear-gradient(40deg, white 40%, #e6ede6);
+    }
+
+    &.face-down {
+      color: papayawhip;
+      background: linear-gradient(45deg, darkgreen 20%, green);
+    }
+  }
+
+  .controls {
+    display: flex;
+    gap: 16px;
+    opacity: 0.8;
+
+    button {
+      width: 64px;
+      height: 64px;
+      color: white;
+      border: unset;
+      font-size: 32px;
+      border-radius: 8px;
+      transition: 200ms linear;
+      box-shadow: 4px 4px 10px 2px #223c5033;
+
+      &:active {
+        transform: scale(0.99);
+        filter: grayscale(0.4);
+      }
+
+      &.check {
+        background-color: green;
+
+        &:hover {
+          background-color: limegreen;
+        }
+      }
+
+      &.cross {
+        background-color: darkred;
+
+        &:hover {
+          background-color: red;
+        }
+      }
+    }
+  }
+}
