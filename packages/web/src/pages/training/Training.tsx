@@ -1,18 +1,12 @@
 import { FC } from 'react'
 
 import { TrainingProps } from './types'
-import { calculateFontSize } from './lib'
+import { Card } from './components/Card'
 import { useTraining } from './use-training'
+import { Controls } from './components/Controls'
 
 export const Training: FC<TrainingProps> = props => {
-  const {
-    flipped,
-    currentText,
-    handleCheck,
-    handleCross,
-    exitTraining,
-    toggleFlipped,
-  } = useTraining(props)
+  const { current, handleCheck, handleCross, exitTraining } = useTraining(props)
 
   return (
     <div className="training-page">
@@ -20,28 +14,14 @@ export const Training: FC<TrainingProps> = props => {
         Back to Settings
       </button>
 
-      {currentText && (
+      {current && (
         <>
-          <div className={`card ${flipped ? 'face-down' : 'face-up'}`}>
-            <div
-              className="text"
-              style={{ fontSize: calculateFontSize(currentText.length) }}
-            >
-              {currentText}
-            </div>
+          <Card
+            faceUpText={current.nativeLang}
+            faceDownText={current.targetLang}
+          />
 
-            <button className="flip" onClick={toggleFlipped} />
-          </div>
-
-          <div className="controls">
-            <button className="check" onClick={handleCheck}>
-              ✓
-            </button>
-
-            <button className="cross" onClick={handleCross}>
-              ×
-            </button>
-          </div>
+          <Controls handleCheck={handleCheck} handleCross={handleCross} />
         </>
       )}
     </div>

@@ -9,23 +9,13 @@ export const useTraining = ({
   exitTraining,
   selectedSets,
 }: TrainingProps) => {
-  const [flipped, setFlipped] = useState(false)
-  const toggleFlipped = () => setFlipped(value => !value)
   const [trainingWords, setTrainingWords] = useState<TrainingWord[]>([])
   const current = trainingWords[0] || null
   const peripheryCount = trainingWords.length * 0.2
 
-  const currentText = current
-    ? flipped
-      ? current.targetLang
-      : current.nativeLang
-    : null
-
   const moveCard = (firstIndex: number, lastIndex: number) => {
     const edge =
       Math.floor(Math.random() * (lastIndex - firstIndex + 1) + firstIndex) + 1
-
-    setFlipped(false)
 
     setTrainingWords([
       ...trainingWords.slice(1, edge),
@@ -51,11 +41,9 @@ export const useTraining = ({
   }, [nativeLang, targetLang, selectedSets])
 
   return {
-    flipped,
-    currentText,
+    current,
     handleCheck,
     handleCross,
     exitTraining,
-    toggleFlipped,
   }
 }
