@@ -1,0 +1,30 @@
+.training-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  max-width: 400px;
+  margin: 0 auto;
+
+  .exit {
+    width: 100%;
+    font-size: 20px;
+    border-radius: 8px;
+    color: white;
+    transition: 200ms linear;
+    background: gray;
+    height: 48px;
+    border: unset;
+    opacity: 0.6;
+
+    &:hover {
+      background: darkgray;
+      box-shadow: 0 0 0 2px white, 0 0 0 4px darkgray;
+    }
+
+    &:active {
+      transform: scale(0.99);
+      background: gray;
+    }
+  }
+}

@@ -12,6 +12,16 @@ export type CardProps = {
   faceDownText: string
 }
 
+export type CardSideProps = {
+  text: string
+  isBackside?: boolean
+}
+
+export type FlipCardProps = {
+  frontsideText: string
+  backsideText: string
+}
+
 export type ControlsProps = {
   handleCheck: () => void
   handleCross: () => void
