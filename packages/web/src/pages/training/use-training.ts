@@ -10,7 +10,8 @@ export const useTraining = ({
   selectedSets,
 }: TrainingProps) => {
   const [trainingWords, setTrainingWords] = useState<TrainingWord[]>([])
-  const current = trainingWords[0] || null
+  const currentCard = trainingWords[0] || null
+  const nextCard = trainingWords[1] || null
   const peripheryCount = trainingWords.length * 0.2
 
   const moveCard = (firstIndex: number, lastIndex: number) => {
@@ -24,6 +25,9 @@ export const useTraining = ({
     ])
   }
 
+  // При нажатии ✓/× включаем анимацию и запускаем таймер.
+  // На исход таймера выключаем анимацию и обновляем колоду.
+  // Пока включена анимация, игнорируем нажатия ✓/×.
   const handleCheck = () => {
     const lastIndex = trainingWords.length - 1
 
@@ -41,7 +45,8 @@ export const useTraining = ({
   }, [nativeLang, targetLang, selectedSets])
 
   return {
-    current,
+    nextCard,
+    currentCard,
     handleCheck,
     handleCross,
     exitTraining,
