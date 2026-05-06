@@ -1,5 +1,8 @@
 import { SupportedLang } from '@langley/words'
 
+export type SwipeMode = null | 'check' | 'cross'
+export type FontSize = 16 | 18 | 20 | 22 | 24 | 26 | 28 | 32 | 36 | 48 | 60 | 72
+
 export type TrainingProps = {
   selectedSets: string[]
   exitTraining: () => void
@@ -20,11 +23,15 @@ export type CardSideProps = {
 export type FlipCardProps = {
   frontsideText: string
   backsideText: string
+  swiping: SwipeMode
+}
+
+export type NextCardProps = {
+  text: string
+  isSwiping: boolean
 }
 
 export type ControlsProps = {
   handleCheck: () => void
   handleCross: () => void
 }
-
-export type FontSize = 16 | 18 | 20 | 22 | 24 | 26 | 28 | 32 | 36 | 48 | 60 | 72
