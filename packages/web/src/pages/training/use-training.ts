@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react'
 import { TrainingWord, getTrainingSet } from '@langley/words'
 
-import { TrainingProps } from './types'
+import { SwipeMode, TrainingProps } from './types'
+
+const ANIMATION_DELAY = 300
 
 export const useTraining = ({
   nativeLang,
@@ -10,6 +12,7 @@ export const useTraining = ({
   selectedSets,
 }: TrainingProps) => {
   const [trainingWords, setTrainingWords] = useState<TrainingWord[]>([])
+  const [swiping, setSwiping] = useState<SwipeMode>(null)
   const currentCard = trainingWords[0] || null
   const nextCard = trainingWords[1] || null
   const peripheryCount = trainingWords.length * 0.2
@@ -25,17 +28,36 @@ export const useTraining = ({
     ])
   }
 
-  // При нажатии ✓/× включаем анимацию и запускаем таймер.
-  // На исход таймера выключаем анимацию и обновляем колоду.
-  // Пока включена анимация, игнорируем нажатия ✓/×.
-  const handleCheck = () => {
-    const lastIndex = trainingWords.length - 1
+  const startSwiping = (mode: SwipeMode) => {
+    setSwiping(mode)
 
-    moveCard(lastIndex - Math.floor(peripheryCount), lastIndex)
+    setTimeout(() => {
+      setSwiping(null)
+
+      if (mode === 'check') {
+        const lastIndex = trainingWords.length - 1
+
+        moveCard(lastIndex - Math.floor(peripheryCount), lastIndex)
+      } else {
+        moveCard(1, Math.ceil(peripheryCount))
+      }
+    }, ANIMATION_DELAY)
+  }
+
+  const handleCheck = () => {
+    if (swiping) {
+      return
+    }
+
+    startSwiping('check')
   }
 
   const handleCross = () => {
-    moveCard(1, Math.ceil(peripheryCount))
+    if (swiping) {
+      return
+    }
+
+    startSwiping('cross')
   }
 
   useEffect(() => {
@@ -45,6 +67,7 @@ export const useTraining = ({
   }, [nativeLang, targetLang, selectedSets])
 
   return {
+    swiping,
     nextCard,
     currentCard,
     handleCheck,
