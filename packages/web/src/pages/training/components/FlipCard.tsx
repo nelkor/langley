@@ -7,20 +7,26 @@ import { FlipCardProps } from '../types'
 export const FlipCard: FC<FlipCardProps> = ({
   swiping,
   backsideText,
+  backsideLang,
   frontsideText,
+  frontsideLang,
 }) => (
   <FlipCardInner
     key={`${frontsideText}-${backsideText}`}
     swiping={swiping}
     frontsideText={frontsideText}
     backsideText={backsideText}
+    backsideLang={backsideLang}
+    frontsideLang={frontsideLang}
   />
 )
 
 const FlipCardInner: FC<FlipCardProps> = ({
   swiping,
   backsideText,
+  backsideLang,
   frontsideText,
+  frontsideLang,
 }) => {
   const [flipped, setFlipped] = useState(false)
 
@@ -40,8 +46,8 @@ const FlipCardInner: FC<FlipCardProps> = ({
         className="flip-card"
         animate={{ scale: flipped ? 1.02 : 1, rotateY: flipped ? 180 : 0 }}
       >
-        <CardSide text={frontsideText} />
-        <CardSide text={backsideText} isBackside />
+        <CardSide text={frontsideText} lang={frontsideLang} />
+        <CardSide text={backsideText} isBackside lang={backsideLang} />
       </motion.div>
 
       <button

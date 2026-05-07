@@ -25,12 +25,18 @@ export const Training: FC<TrainingProps> = props => {
       {currentCard && nextCard && (
         <>
           <div className="deck">
-            <NextCard text={nextCard.nativeLang} isSwiping={Boolean(swiping)} />
+            <NextCard
+              lang={props.nativeLang}
+              text={nextCard.nativeLang}
+              isSwiping={Boolean(swiping)}
+            />
 
             <FlipCard
               swiping={swiping}
               frontsideText={currentCard.nativeLang}
               backsideText={currentCard.targetLang}
+              frontsideLang={props.nativeLang}
+              backsideLang={props.targetLang}
             />
           </div>
 

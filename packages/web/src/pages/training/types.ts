@@ -10,25 +10,24 @@ export type TrainingProps = {
   targetLang: SupportedLang
 }
 
-export type CardProps = {
-  faceUpText: string
-  faceDownText: string
-}
-
 export type CardSideProps = {
   text: string
+  lang: SupportedLang
   isBackside?: boolean
 }
 
 export type FlipCardProps = {
-  frontsideText: string
-  backsideText: string
   swiping: SwipeMode
+  backsideText: string
+  frontsideText: string
+  backsideLang: SupportedLang
+  frontsideLang: SupportedLang
 }
 
 export type NextCardProps = {
   text: string
   isSwiping: boolean
+  lang: SupportedLang
 }
 
 export type ControlsProps = {
