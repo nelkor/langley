@@ -11,8 +11,9 @@ export const useTraining = ({
   exitTraining,
   selectedSets,
 }: TrainingProps) => {
-  const [trainingWords, setTrainingWords] = useState<TrainingWord[]>([])
+  const [flipped, setFlipped] = useState(false)
   const [swiping, setSwiping] = useState<SwipeMode>(null)
+  const [trainingWords, setTrainingWords] = useState<TrainingWord[]>([])
   const currentCard = trainingWords[0] || null
   const nextCard = trainingWords[1] || null
   const peripheryCount = trainingWords.length * 0.2
@@ -67,8 +68,10 @@ export const useTraining = ({
   }, [nativeLang, targetLang, selectedSets])
 
   return {
+    flipped,
     swiping,
     nextCard,
+    setFlipped,
     currentCard,
     handleCheck,
     handleCross,

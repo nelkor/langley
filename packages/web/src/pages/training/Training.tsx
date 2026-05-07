@@ -8,8 +8,10 @@ import { Controls } from './components/Controls'
 
 export const Training: FC<TrainingProps> = props => {
   const {
+    flipped,
     swiping,
     nextCard,
+    setFlipped,
     currentCard,
     handleCheck,
     handleCross,
@@ -28,7 +30,9 @@ export const Training: FC<TrainingProps> = props => {
             <NextCard text={nextCard.nativeLang} isSwiping={Boolean(swiping)} />
 
             <FlipCard
+              flipped={flipped}
               swiping={swiping}
+              setFlipped={setFlipped}
               frontsideText={currentCard.nativeLang}
               backsideText={currentCard.targetLang}
             />

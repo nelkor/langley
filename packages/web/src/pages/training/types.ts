@@ -21,9 +21,11 @@ export type CardSideProps = {
 }
 
 export type FlipCardProps = {
+  flipped: boolean
   frontsideText: string
   backsideText: string
   swiping: SwipeMode
+  setFlipped: (value: boolean) => void
 }
 
 export type NextCardProps = {
