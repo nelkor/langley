@@ -6,12 +6,16 @@ import { FlipCardProps } from '../types'
 
 export const FlipCard: FC<FlipCardProps> = ({
   swiping,
+  nativeLang,
+  targetLang,
   backsideText,
   frontsideText,
 }) => (
   <FlipCardInner
     key={`${frontsideText}-${backsideText}`}
     swiping={swiping}
+    nativeLang={nativeLang}
+    targetLang={targetLang}
     frontsideText={frontsideText}
     backsideText={backsideText}
   />
@@ -19,10 +23,13 @@ export const FlipCard: FC<FlipCardProps> = ({
 
 const FlipCardInner: FC<FlipCardProps> = ({
   swiping,
+  nativeLang,
+  targetLang,
   backsideText,
   frontsideText,
 }) => {
   const [flipped, setFlipped] = useState(false)
+  const toggleFlipped = () => setFlipped(!flipped)
 
   return (
     <motion.div
@@ -40,14 +47,21 @@ const FlipCardInner: FC<FlipCardProps> = ({
         className="flip-card"
         animate={{ scale: flipped ? 1.02 : 1, rotateY: flipped ? 180 : 0 }}
       >
-        <CardSide text={frontsideText} />
-        <CardSide text={backsideText} isBackside />
-      </motion.div>
+        <CardSide
+          flipped={flipped}
+          text={frontsideText}
+          toggleFlipped={toggleFlipped}
+          lang={nativeLang}
+        />
 
-      <button
-        className="flip-button"
-        onClick={() => setFlipped(value => !value)}
-      />
+        <CardSide
+          isBackside
+          flipped={flipped}
+          text={backsideText}
+          toggleFlipped={toggleFlipped}
+          lang={targetLang}
+        />
+      </motion.div>
     </motion.div>
   )
 }
