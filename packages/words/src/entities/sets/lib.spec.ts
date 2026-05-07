@@ -11,6 +11,7 @@ describe('calculateSetsForLangs', () => {
     expect(calculateSetsForLangs('en', 'ru')).toEqual([
       { id: 'nouns', name: 'Nouns' },
       { id: 'verbs', name: 'Verbs' },
+      { id: 'adjectives', name: 'Adjectives' },
     ])
   })
 })
@@ -21,6 +22,8 @@ describe('calculateTrainingSet', () => {
   })
 
   it('should calculate correctly', () => {
-    expect(calculateTrainingSet('ru', 'es', ['verbs', 'nouns']).length).toBe(40)
+    expect(
+      calculateTrainingSet('ru', 'es', ['verbs', 'nouns', 'adjectives']).length,
+    ).toBe(300)
   })
 })
