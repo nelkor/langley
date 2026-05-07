@@ -17,13 +17,18 @@ export type CardProps = {
 
 export type CardSideProps = {
   text: string
+  flipped?: boolean
+  lang?: SupportedLang
   isBackside?: boolean
+  toggleFlipped?: () => void
 }
 
 export type FlipCardProps = {
   frontsideText: string
   backsideText: string
   swiping: SwipeMode
+  nativeLang: SupportedLang
+  targetLang: SupportedLang
 }
 
 export type NextCardProps = {
